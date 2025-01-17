@@ -282,7 +282,7 @@ namespace Plugin.BLE.Windows
         /// </summary>
         /// <param name="watcher">The bluetooth advertisement watcher currently being used</param>
         /// <param name="btAdv">The advertisement recieved by the watcher</param>
-        private void AdvertisementReceived(BluetoothLEAdvertisementWatcher watcher, BluetoothLEAdvertisementReceivedEventArgs btAdv)
+        private void f(BluetoothLEAdvertisementWatcher watcher, BluetoothLEAdvertisementReceivedEventArgs btAdv)
         {
             var deviceId = btAdv.BluetoothAddress.ParseDeviceId();
 
@@ -296,18 +296,15 @@ namespace Plugin.BLE.Windows
             else
             {
                 var bluetoothLeDevice = BluetoothLEDevice.FromBluetoothAddressAsync(btAdv.BluetoothAddress).AsTask().Result;
-                if (bluetoothLeDevice != null) //make sure advertisement bluetooth address actually returns a device
-                {
-                    device = new Device(
-                        this,
-                        bluetoothLeDevice,
-                        btAdv.RawSignalStrengthInDBm,
-                        deviceId,
-                        ParseAdvertisementData(btAdv.Advertisement),
-                        btAdv.IsConnectable);
-                    Trace.Message("AdvReceived - New: {0}", btAdv.ToDetailedString(device.Name));
-                    HandleDiscoveredDevice(device);
-                }
+                device = new Device(
+                    this,
+                    bluetoothLeDevice,
+                    btAdv.RawSignalStrengthInDBm,
+                    deviceId,
+                    ParseAdvertisementData(btAdv.Advertisement),
+                    btAdv.IsConnectable);
+                Trace.Message("AdvReceived - New: {0}", btAdv.ToDetailedString(device.Name));
+                HandleDiscoveredDevice(device);
             }
         }
 
