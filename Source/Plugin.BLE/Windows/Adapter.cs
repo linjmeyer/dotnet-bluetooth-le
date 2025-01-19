@@ -282,7 +282,7 @@ namespace Plugin.BLE.Windows
         /// </summary>
         /// <param name="watcher">The bluetooth advertisement watcher currently being used</param>
         /// <param name="btAdv">The advertisement recieved by the watcher</param>
-        private void f(BluetoothLEAdvertisementWatcher watcher, BluetoothLEAdvertisementReceivedEventArgs btAdv)
+        private void AdvertisementReceived(BluetoothLEAdvertisementWatcher watcher, BluetoothLEAdvertisementReceivedEventArgs btAdv)
         {
             var deviceId = btAdv.BluetoothAddress.ParseDeviceId();
 
