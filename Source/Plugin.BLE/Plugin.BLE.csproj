@@ -8,7 +8,7 @@
 		<Version>3.1.0</Version>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
 		<Authors>Adrian Seceleanu, Sven-Michael Stübe, Janus Weil</Authors>
-		<PackageId>Plugin.BLE</PackageId>
+		<PackageId>LinMeyer.Plugin.BLE</PackageId>
 		<PackOnBuild>true</PackOnBuild>
 		<PackageIcon>icon_small.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
